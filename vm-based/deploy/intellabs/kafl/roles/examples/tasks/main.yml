@@ -1,0 +1,18 @@
+- name: Clone repo
+  ansible.builtin.git:
+    repo: "{{ examples_url }}"
+    dest: "{{ examples_root }}"
+    version: "{{ examples_revision | default(omit) }}"
+    depth: "{{ git_clone_depth | default(omit) }}"
+    force: "{{ force_clone }}"
+    recursive: false
+  tags:
+    - clone
+
+- name: Import template windows tasks
+  ansible.builtin.import_tasks: template_windows.yml
+  when: "'examples-template-windows' in ansible_run_tags"
+
+- name: Import dvkm tasks
+  ansible.builtin.import_tasks: dvkm.yml
+  when: "'examples-linux-dvkm' in ansible_run_tags"
