@@ -4,7 +4,7 @@ This is the source code of Tbouncer.
 
 ## Project Structure
 
-This project is designed to fuzz different types of Tcons (Trusted Communication Nodes) using various fuzzing techniques. It is divided into the following directories:
+This project is designed to fuzz different types of Tcons using various fuzzing techniques. It is divided into the following directories:
 
 ### `process-based/`
 This directory contains code based on **eBPF (Extended Berkeley Packet Filter)** technology. It is used to fuzz **Process-based Tcons**. The eBPF-based code interacts with the kernel to trace and monitor system calls and activities of the processes, helping to detect vulnerabilities during fuzzing.
